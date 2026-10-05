@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ENLACES } from '../datos.js';
 
 export default function NavBar() {
@@ -11,18 +11,14 @@ export default function NavBar() {
       <ul className="navbar__links">
         {ENLACES.map((enlace) => (
           <li key={enlace.id}>
-            <NavLink
-              to={enlace.ruta}
-              end={enlace.ruta === '/'}
-              className={({ isActive }) => (isActive ? 'activo' : '')}
-            >
+            <NavLink to={enlace.ruta} end={enlace.ruta === '/'} className={({ isActive }) => (isActive ? 'activo' : '')}>
               {enlace.texto}
             </NavLink>
           </li>
         ))}
-        <li><a href="/#beneficios">Beneficios</a></li>
-        <li><a href="/#en-vivo">En vivo</a></li>
-        <li><a className="navbar__cta" href="/contacto">Contactar</a></li>
+        <li><Link to="/#beneficios">Beneficios</Link></li>
+        <li><Link to="/#en-vivo">En vivo</Link></li>
+        <li><Link className="navbar__cta" to="/contacto">Contactar</Link></li>
       </ul>
     </nav>
   );
