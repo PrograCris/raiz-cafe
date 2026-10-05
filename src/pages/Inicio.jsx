@@ -1,68 +1,61 @@
-import { Link } from 'react-router-dom';
-import { PRODUCTOS, BENEFICIOS } from '../datos.js';
+import Hero from '../components/Hero.jsx';
+import SeccionAPI from '../components/SeccionAPI.jsx';
+import Confianza from '../components/Confianza.jsx';
 import TarjetaProducto from '../components/TarjetaProducto.jsx';
+import { PRODUCTOS, BENEFICIOS } from '../datos.js';
 import { useTitulo } from '../hooks/useTitulo.js';
 
 export default function Inicio() {
   useTitulo(
     'Raíz | Café de origen guatemalteco',
-    'Descubre café de origen guatemalteco, tostado artesanalmente con granos seleccionados de Huehuetenango, Antigua y Cobán.'
+    'Descubre café guatemalteco de origen, tostado artesanalmente cada semana. Conoce nuestros cafés y contacta a Raíz.'
   );
 
-  // Estado derivado: filtramos los destacados en el momento
-  const destacados = PRODUCTOS.filter((p) => p.destacado);
+  const destacados = PRODUCTOS.filter((producto) => producto.destacado);
 
   return (
     <>
-      {/* ---------- Portada ---------- */}
-      <header className="hero">
-        <span className="hero__etiqueta">Tueste artesanal</span>
-        <h1>Café que nace en casa</h1>
-        <p>
-          Granos de altura seleccionados en fincas guatemaltecas y tostados cada
-          semana por manos locales.
-        </p>
-        <Link className="boton" to="/productos">
-          Ver productos
-        </Link>
-      </header>
+      <Hero />
 
-      {/* ---------- Beneficios ---------- */}
-      <section className="contenedor seccion">
-        <h2>Por qué Raíz</h2>
+      <section id="beneficios" className="contenedor seccion">
+        <span className="seccion__eyebrow">Nuestra propuesta</span>
+        <h2>Una taza con origen, frescura y propósito</h2>
         <p className="seccion__intro">
-          Trabajamos directo con las familias productoras, sin intermediarios.
+          Seleccionamos cafés guatemaltecos y trabajamos cerca de quienes los producen para cuidar cada etapa hasta tu taza.
         </p>
-
         <div className="rejilla">
-          {BENEFICIOS.map((b) => (
-            <article key={b.id} className="beneficio">
-              <span className="beneficio__icono" aria-hidden="true">
-                {b.icono}
-              </span>
-              <h3>{b.titulo}</h3>
-              <p>{b.texto}</p>
+          {BENEFICIOS.map((beneficio) => (
+            <article key={beneficio.id} className="beneficio">
+              <span className="beneficio__icono" aria-hidden="true">{beneficio.icono}</span>
+              <h3>{beneficio.titulo}</h3>
+              <p>{beneficio.texto}</p>
             </article>
           ))}
         </div>
       </section>
 
-      {/* ---------- Destacados ---------- */}
-      <section className="contenedor seccion">
+      <section id="productos-destacados" className="contenedor seccion">
+        <span className="seccion__eyebrow">Lo que ofrecemos</span>
         <h2>Nuestros favoritos</h2>
-        <p className="seccion__intro">Los dos que más nos piden.</p>
-
+        <p className="seccion__intro">Dos cafés para empezar a conocer el sabor de Raíz.</p>
         <div className="rejilla">
           {destacados.map((producto) => (
             <TarjetaProducto key={producto.id} producto={producto} />
           ))}
         </div>
+        <a className="boton boton--borde landing-link" href="/productos">Explorar todo el catálogo</a>
+      </section>
 
-        <p style={{ marginTop: '2rem' }}>
-          <Link className="boton boton--borde" to="/productos">
-            Ver todo el catálogo
-          </Link>
-        </p>
+      <SeccionAPI />
+      <Confianza />
+
+      <section id="contacto-cta" className="cta-final">
+        <div className="contenedor">
+          <span className="seccion__eyebrow">Da el siguiente paso</span>
+          <h2>¿Quieres probar un café con historia?</h2>
+          <p>Cuéntanos qué estás buscando y te ayudamos a encontrar una opción de Raíz.</p>
+          <a className="boton boton--acento" href="/contacto">Quiero conocer Raíz</a>
+        </div>
       </section>
     </>
   );
