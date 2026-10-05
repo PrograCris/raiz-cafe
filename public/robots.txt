@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://progracris.github.io/raiz-cafe/sitemap.xml
