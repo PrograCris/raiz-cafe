@@ -3,8 +3,8 @@ import { ENLACES } from '../datos.js';
 
 export default function NavBar() {
   return (
-    <nav className="navbar">
-      <NavLink to="/" className="navbar__marca">
+    <nav className="navbar" aria-label="Navegación principal">
+      <NavLink to="/" className="navbar__marca" aria-label="Raíz, volver al inicio">
         🌱 Raíz
       </NavLink>
 
@@ -20,6 +20,9 @@ export default function NavBar() {
             </NavLink>
           </li>
         ))}
+        <li><a href="/#beneficios">Beneficios</a></li>
+        <li><a href="/#en-vivo">En vivo</a></li>
+        <li><a className="navbar__cta" href="/contacto">Contactar</a></li>
       </ul>
     </nav>
   );
