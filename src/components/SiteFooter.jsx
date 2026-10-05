@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function SiteFooter() {
   const anio = new Date().getFullYear();
 
@@ -11,8 +13,8 @@ export default function SiteFooter() {
         <div className="footer__enlaces">
           <a href="mailto:hola@raiz.gt">hola@raiz.gt</a>
           <a href="tel:+50255555555">+502 5555 5555</a>
-          <a href="/contacto">Contacto</a>
-          <a href="/privacidad">Aviso de privacidad</a>
+          <Link to="/contacto">Contacto</Link>
+          <Link to="/privacidad">Aviso de privacidad</Link>
         </div>
       </div>
       <p>© {anio} Raíz. Proyecto académico.</p>
