@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Hero from '../components/Hero.jsx';
 import SeccionAPI from '../components/SeccionAPI.jsx';
 import Confianza from '../components/Confianza.jsx';
@@ -20,9 +21,7 @@ export default function Inicio() {
       <section id="beneficios" className="contenedor seccion">
         <span className="seccion__eyebrow">Nuestra propuesta</span>
         <h2>Una taza con origen, frescura y propósito</h2>
-        <p className="seccion__intro">
-          Seleccionamos cafés guatemaltecos y trabajamos cerca de quienes los producen para cuidar cada etapa hasta tu taza.
-        </p>
+        <p className="seccion__intro">Seleccionamos cafés guatemaltecos y trabajamos cerca de quienes los producen para cuidar cada etapa hasta tu taza.</p>
         <div className="rejilla">
           {BENEFICIOS.map((beneficio) => (
             <article key={beneficio.id} className="beneficio">
@@ -39,11 +38,9 @@ export default function Inicio() {
         <h2>Nuestros favoritos</h2>
         <p className="seccion__intro">Dos cafés para empezar a conocer el sabor de Raíz.</p>
         <div className="rejilla">
-          {destacados.map((producto) => (
-            <TarjetaProducto key={producto.id} producto={producto} />
-          ))}
+          {destacados.map((producto) => <TarjetaProducto key={producto.id} producto={producto} />)}
         </div>
-        <a className="boton boton--borde landing-link" href="/productos">Explorar todo el catálogo</a>
+        <Link className="boton boton--borde landing-link" to="/productos">Explorar todo el catálogo</Link>
       </section>
 
       <SeccionAPI />
@@ -54,7 +51,7 @@ export default function Inicio() {
           <span className="seccion__eyebrow">Da el siguiente paso</span>
           <h2>¿Quieres probar un café con historia?</h2>
           <p>Cuéntanos qué estás buscando y te ayudamos a encontrar una opción de Raíz.</p>
-          <a className="boton boton--acento" href="/contacto">Quiero conocer Raíz</a>
+          <Link className="boton boton--acento" to="/contacto">Quiero conocer Raíz</Link>
         </div>
       </section>
     </>
