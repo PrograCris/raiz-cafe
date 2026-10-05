@@ -6,13 +6,13 @@ import Productos from './pages/Productos.jsx';
 import Detalle from './pages/Detalle.jsx';
 import Nosotros from './pages/Nosotros.jsx';
 import Contacto from './pages/Contacto.jsx';
+import Privacidad from './pages/Privacidad.jsx';
 import NoEncontrado from './pages/NoEncontrado.jsx';
 
 export default function App() {
   return (
     <div className="layout">
       <NavBar />
-
       <main>
         <Routes>
           <Route path="/" element={<Inicio />} />
@@ -20,12 +20,11 @@ export default function App() {
           <Route path="/productos/:id" element={<Detalle />} />
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/contacto" element={<Contacto />} />
+          <Route path="/privacidad" element={<Privacidad />} />
           <Route path="*" element={<NoEncontrado />} />
         </Routes>
       </main>
-
       <SiteFooter />
     </div>
   );
 }
-
